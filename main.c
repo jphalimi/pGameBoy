@@ -4,20 +4,10 @@
 
 int main (int argc, char *argv[])
 {
-	SLog *log;
+	Log_setOutput (stderr);
+	Log_setVerbosity (0);
 	
-	if (Log_create (&log) == -1)
-	{
-		fprintf (stderr, "Error: Cannot create log\n");
-		exit (EXIT_FAILURE);
-	}
-	
-	Log_setOutput (log, stderr);
-	Log_setVerbosity (log, 0);
-	
-	Log_output (log, 1, "Welcome to the GameboyLight project. This is the first compilable version to be pushed ! Enjoy it ! :o)\n");
-	
-	Log_destroy (log), log = NULL;
+	Log_output (1, "Welcome to the GameboyLight project. This is the first compilable version to be pushed ! Enjoy it ! :o)\n");
 	
 	(void) argc;
 	(void) argv;
